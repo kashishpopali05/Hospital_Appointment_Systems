@@ -21,7 +21,7 @@ SECRET_KEY = os.environ.get(
 )
 
 # Set DEBUG=False on Railway by default (unless explicitly set to True)
-DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
+DEBUG = 'True'
 
 # Railway automatically assigns hostnames under .railway.app
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.railway.app']
