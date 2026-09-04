@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="appointment-form-card">
+
+        <div class="form-heading">
+
+            <span>APPOINTMENT</span>
+
+            <h1>Book Your Appointment</h1>
+
+            <p>
+                Choose your doctor, date and preferred time.
+            </p>
+
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Doctor</label>
+
+                    {{ form.doctor }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Patient</label>
+
+                    {{ form.patient }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Appointment Date</label>
+
+                    {{ form.appointment_date }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Appointment Time</label>
+
+                    {{ form.appointment_time }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Reason for Visit</label>
+
+                {{ form.reason }}
+
+            </div>
+
+
+            <button type="submit"
+                    class="primary-btn full-btn">
+
+                Confirm Appointment
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

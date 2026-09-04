@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div>
+
+        <span>PATIENT PORTAL</span>
+
+        <h1>Patients</h1>
+
+        <p>
+            Manage patient information and records.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="table-section">
+
+    <div class="table-top">
+
+        <h2>Patient Records</h2>
+
+        <a href="{% url 'add_patient' %}"
+           class="primary-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Patient
+        </a>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Patient</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for patient in patients %}
+
+                <tr>
+
+                    <td>
+                        <strong>{{ patient.name }}</strong>
+                    </td>
+
+                    <td>{{ patient.age }}</td>
+
+                    <td>{{ patient.gender }}</td>
+
+                    <td>
+                        <span class="blood">
+                            {{ patient.blood_group|default:"-" }}
+                        </span>
+                    </td>
+
+                    <td>{{ patient.phone }}</td>
+
+                    <td>{{ patient.email }}</td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="6"
+                        class="empty-table">
+                        No patients found.
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

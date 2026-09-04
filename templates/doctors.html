@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div>
+        <span>OUR SPECIALISTS</span>
+
+        <h1>Meet Our Doctors</h1>
+
+        <p>
+            Experienced professionals dedicated
+            to your health and wellbeing.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="doctor-page">
+
+    <div class="doctor-grid full-doctor-grid">
+
+        {% for doctor in doctors %}
+
+        <div class="doctor-card large">
+
+            {% if doctor.image %}
+
+            <img src="{{ doctor.image }}"
+                 alt="{{ doctor.name }}">
+
+            {% else %}
+
+            <div class="doctor-placeholder">
+                <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            {% endif %}
+
+            <div class="doctor-info">
+
+                <h3>{{ doctor.name }}</h3>
+
+                <p class="specialization">
+                    {{ doctor.specialization }}
+                </p>
+
+                <p>
+                    {{ doctor.department.name }}
+                </p>
+
+                <span>
+                    {{ doctor.experience }}+ Years Experience
+                </span>
+
+                <a href="{% url 'book_appointment' %}"
+                   class="small-btn">
+                    Book Appointment
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-state">
+            <i class="fa-solid fa-user-doctor"></i>
+            <h3>No doctors added yet</h3>
+            <p>Add doctors from the Django admin panel.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

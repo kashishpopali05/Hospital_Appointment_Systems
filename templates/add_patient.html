@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-heading">
+
+            <span>PATIENT PORTAL</span>
+
+            <h1>Add New Patient</h1>
+
+            <p>
+                Enter the patient's basic information.
+            </p>
+
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Age</label>
+
+                    <input
+                        type="number"
+                        name="age"
+                        placeholder="Enter age"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <select name="gender" required>
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Blood Group</label>
+
+                    <input
+                        type="text"
+                        name="blood_group"
+                        placeholder="e.g. O+"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email address"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Address</label>
+
+                <textarea
+                    name="address"
+                    rows="4"
+                    placeholder="Patient address"
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit"
+                    class="primary-btn full-btn">
+
+                Add Patient
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

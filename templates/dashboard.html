@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="dashboard-page">
+
+    <div class="dashboard-heading">
+
+        <div>
+
+            <span>VITALCARE ADMIN</span>
+
+            <h1>Dashboard</h1>
+
+            <p>
+                Welcome back. Here's your clinic overview.
+            </p>
+
+        </div>
+
+        <a href="{% url 'book_appointment' %}"
+           class="primary-btn">
+
+            <i class="fa-solid fa-plus"></i>
+            New Appointment
+
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-stats">
+
+
+        <div class="dashboard-stat">
+
+            <div class="stat-icon">
+                <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <div>
+
+                <span>Total Doctors</span>
+
+                <strong>
+                    {{ total_doctors }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <div class="stat-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+
+                <span>Total Patients</span>
+
+                <strong>
+                    {{ total_patients }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <div class="stat-icon">
+                <i class="fa-solid fa-stethoscope"></i>
+            </div>
+
+            <div>
+
+                <span>Departments</span>
+
+                <strong>
+                    {{ total_departments }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <div class="stat-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+
+                <span>Appointments</span>
+
+                <strong>
+                    {{ total_appointments }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-content">
+
+        <div class="dashboard-table">
+
+            <div class="dashboard-table-heading">
+
+                <h2>Upcoming Appointments</h2>
+
+                <a href="{% url 'appointment_list' %}">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for appointment in upcoming %}
+
+                        <tr>
+
+                            <td>
+                                {{ appointment.patient.name }}
+                            </td>
+
+                            <td>
+                                {{ appointment.doctor.name }}
+                            </td>
+
+                            <td>
+                                {{ appointment.appointment_date }}
+                            </td>
+
+                            <td>
+
+                                <span class="status {{ appointment.status|lower }}">
+                                    {{ appointment.status }}
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+                            <td colspan="4"
+                                class="empty-table">
+                                No upcoming appointments.
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-help">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>Need Assistance?</h3>
+
+            <p>
+                Our support team is available
+                24/7 for urgent requirements.
+            </p>
+
+            <a href="#">
+                Contact Support
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

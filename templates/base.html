@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VitalCare Health Clinic</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="top-bar">
+
+        <div>
+            <span>Your Health, Our Priority</span>
+            <span>Open 7 Days a Week</span>
+        </div>
+
+        <div>
+            <span>USD</span>
+            <a href="{% url 'book_appointment' %}">
+                Book Appointment
+            </a>
+            <a href="{% url 'dashboard' %}">
+                Patient Portal
+            </a>
+            <span>Contact Us</span>
+        </div>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <div>
+                <strong>VitalCare</strong>
+                <small>Health Clinic</small>
+            </div>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}" class="active">
+                Home
+            </a>
+
+            <a href="#about">
+                About Us
+            </a>
+
+            <a href="#services">
+                Our Services
+            </a>
+
+            <a href="{% url 'doctors' %}">
+                Doctors
+            </a>
+
+            <a href="#packages">
+                Health Packages
+            </a>
+
+            <a href="#pages">
+                Pages <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <a href="#blog">
+                Blog
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a href="{% url 'book_appointment' %}"
+               class="nav-button">
+                Book Appointment
+            </a>
+
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer id="contact">
+
+    <div class="footer-content">
+
+        <div>
+
+            <a href="{% url 'home' %}" class="logo footer-logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <strong>VitalCare</strong>
+                    <small>Health Clinic</small>
+                </div>
+
+            </a>
+
+            <p>
+                Compassionate healthcare powered by
+                advanced technology and experienced specialists.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'doctors' %}">Doctors</a>
+            <a href="{% url 'patients' %}">Patients</a>
+            <a href="{% url 'appointment_list' %}">Appointments</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Services</h4>
+
+            <a href="#">Cardiology</a>
+            <a href="#">General Medicine</a>
+            <a href="#">Dental Care</a>
+            <a href="#">Women's Health</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>+91 98765 43210</p>
+            <p>care@vitalcare.com</p>
+            <p>Dhule, Maharashtra</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 VitalCare Health Clinic. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
