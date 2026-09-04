@@ -2,6 +2,10 @@
 
 {% block content %}
 
+<!-- =========================
+     HERO SECTION
+========================= -->
+
 <section class="hero">
 
     <div class="hero-left">
@@ -35,7 +39,6 @@
             </a>
 
         </div>
-
 
         <div class="hero-stats">
 
@@ -76,7 +79,10 @@
 
             <strong>24/7</strong>
 
-            <span>Emergency<br>Support</span>
+            <span>
+                Emergency<br>
+                Support
+            </span>
 
         </div>
 
@@ -84,6 +90,10 @@
 
 </section>
 
+
+<!-- =========================
+     SERVICES SECTION
+========================= -->
 
 <section class="section" id="services">
 
@@ -123,44 +133,103 @@
 
         {% empty %}
 
+        <!-- Default Service 1 -->
+
         <div class="service-card">
-            <div class="service-icon">♥</div>
-            <h3>Cardiology</h3>
+
+            <div class="service-icon">
+                ♥
+            </div>
+
+            <h3>
+                Cardiology
+            </h3>
+
             <p>
                 Comprehensive heart care with
                 advanced diagnostics and treatment.
             </p>
-            <a href="#">Learn More →</a>
+
+            <a href="{% url 'doctors' %}">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
+
+        <!-- Default Service 2 -->
+
         <div class="service-card">
-            <div class="service-icon">✚</div>
-            <h3>General Medicine</h3>
+
+            <div class="service-icon">
+                ✚
+            </div>
+
+            <h3>
+                General Medicine
+            </h3>
+
             <p>
                 Expert care for everyday health
                 concerns and chronic conditions.
             </p>
-            <a href="#">Learn More →</a>
+
+            <a href="{% url 'doctors' %}">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
+
+        <!-- Default Service 3 -->
+
         <div class="service-card">
-            <div class="service-icon">♢</div>
-            <h3>Dental Care</h3>
+
+            <div class="service-icon">
+                ♢
+            </div>
+
+            <h3>
+                Dental Care
+            </h3>
+
             <p>
                 Complete dental solutions for
                 a healthy and confident smile.
             </p>
-            <a href="#">Learn More →</a>
+
+            <a href="{% url 'doctors' %}">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
+
+        <!-- Default Service 4 -->
+
         <div class="service-card">
-            <div class="service-icon">♧</div>
-            <h3>Women's Health</h3>
+
+            <div class="service-icon">
+                ♧
+            </div>
+
+            <h3>
+                Women's Health
+            </h3>
+
             <p>
                 Compassionate care for women
                 at every stage of life.
             </p>
-            <a href="#">Learn More →</a>
+
+            <a href="{% url 'doctors' %}">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
         {% endfor %}
@@ -170,18 +239,31 @@
 </section>
 
 
+<!-- =========================
+     FEATURE SECTION
+========================= -->
+
 <section class="feature-grid" id="packages">
 
+
+    <!-- HEALTH PACKAGES -->
 
     <div class="feature-card package-card">
 
         <div>
 
-            <h3>Health Checkup<br>Packages</h3>
+            <h3>
+                Health Checkup<br>
+                Packages
+            </h3>
 
-            <span>Starting From</span>
+            <span>
+                Starting From
+            </span>
 
-            <strong>$49</strong>
+            <strong>
+                $49
+            </strong>
 
             <a href="{% url 'book_appointment' %}">
                 View Packages
@@ -196,9 +278,13 @@
     </div>
 
 
+    <!-- WHY CHOOSE US -->
+
     <div class="feature-card why-card">
 
-        <h3>Why Choose Us?</h3>
+        <h3>
+            Why Choose Us?
+        </h3>
 
         <ul>
 
@@ -231,11 +317,16 @@
     </div>
 
 
+    <!-- SELF CARE -->
+
     <div class="feature-card care-card">
 
         <div>
 
-            <h3>Take Care Of<br>Yourself Today</h3>
+            <h3>
+                Take Care Of<br>
+                Yourself Today
+            </h3>
 
             <p>
                 Early diagnosis, better
@@ -255,11 +346,17 @@
     </div>
 
 
+    <!-- EMERGENCY -->
+
     <div class="feature-card emergency-feature">
 
-        <h3>We're Here for You</h3>
+        <h3>
+            We're Here for You
+        </h3>
 
-        <strong>24/7</strong>
+        <strong>
+            24/7
+        </strong>
 
         <p>
             Emergency Care<br>
@@ -275,11 +372,17 @@
 </section>
 
 
+<!-- =========================
+     DOCTORS SECTION
+========================= -->
+
 <section class="doctors-preview">
 
     <div class="section-title">
 
-        <h2>Meet Our Doctors</h2>
+        <h2>
+            Meet Our Doctors
+        </h2>
 
         <div class="title-line"></div>
 
@@ -292,17 +395,104 @@
 
         <div class="doctor-card">
 
-            <img src="{{ doctor.image }}"
-                 alt="{{ doctor.name }}">
+            <img
+                src="{{ doctor.image }}"
+                alt="{{ doctor.name }}">
 
             <div>
 
-                <h3>{{ doctor.name }}</h3>
+                <h3>
+                    {{ doctor.name }}
+                </h3>
 
-                <p>{{ doctor.specialization }}</p>
+                <p>
+                    {{ doctor.specialization }}
+                </p>
 
                 <span>
                     {{ doctor.experience }}+ Years Experience
+                </span>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <!-- Default Doctor 1 -->
+
+        <div class="doctor-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=500&q=80"
+                alt="Doctor">
+
+            <div>
+
+                <h3>
+                    Dr. Sarah Johnson
+                </h3>
+
+                <p>
+                    Cardiologist
+                </p>
+
+                <span>
+                    12+ Years Experience
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Default Doctor 2 -->
+
+        <div class="doctor-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=500&q=80"
+                alt="Doctor">
+
+            <div>
+
+                <h3>
+                    Dr. Michael Smith
+                </h3>
+
+                <p>
+                    General Physician
+                </p>
+
+                <span>
+                    10+ Years Experience
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Default Doctor 3 -->
+
+        <div class="doctor-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=500&q=80"
+                alt="Doctor">
+
+            <div>
+
+                <h3>
+                    Dr. Emily Wilson
+                </h3>
+
+                <p>
+                    Dental Specialist
+                </p>
+
+                <span>
+                    8+ Years Experience
                 </span>
 
             </div>
@@ -314,5 +504,6 @@
     </div>
 
 </section>
+
 
 {% endblock %}
